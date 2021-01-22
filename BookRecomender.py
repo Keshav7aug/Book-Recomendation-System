@@ -104,11 +104,14 @@ def UI():
     while(i<len(req_book)):
         print(i,'.',req_book[i])
         i+=1
-    choice=int(input("Enter your choice"))
-    book_name=req_book[choice]   
-    df1.apply(got_book,args=([book_name]),axis=1)
+    choices=input("Enter your choices separated by space ")
+    book_name=[req_book[int(choice)] for choice in choices.split()]
+    A = df1[df1.apply(got_book,args=([book_name]),axis=1)]
+    print("Similar Books")
+    for i in get_recommendations(A.original_title):
+        print(i)
 def got_book(x,title):
-    if(x['original_title']==title):
+    if(x['original_title'] in title):
         print('Book Name: ',x['original_title'])
         print()
         print('Book Author:',x['authors'])
@@ -127,17 +130,8 @@ def got_book(x,title):
         a=a/user.shape[0]
         a=a*100
         print('percentage of people read this book = ',a)
-        print('similar books:')
-        z=(get_recommendations([title]))
-        for ade in z:
-            BOOK_ID=df1.loc[(df1['original_title']==ade),'book_id'].values[0]
-            a=user.loc[(user.book_id==BOOK_ID)].shape[0]
-            a=a/user.shape[0]
-            a=a*100
-            print(ade,'     ',a)
-        #abcd=0
-        
-        #print(z)
+        return True
+    return False
         
         
         return
