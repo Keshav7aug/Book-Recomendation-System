@@ -8,3 +8,8 @@ BookRecommender.py<br>
   python file of fully complete program<br>
 XML2CSV.ipynb<br>
   code to convert all the XML files of the books, I downloaded into the CSV file.<br>
+![GUI](https://github.com/Keshav7aug/Book-Recomendation-System/blob/master/Screenshots/Screenshot%20from%202021-02-06%2012-40-41.png?raw=true "GUI")
+![GUI](https://github.com/Keshav7aug/Book-Recomendation-System/blob/master/Screenshots/Screenshot%20from%202021-02-06%2012-41-02.png?raw=true "GUI")
+![GUI](https://github.com/Keshav7aug/Book-Recomendation-System/blob/master/Screenshots/Screenshot%20from%202021-02-06%2012-41-29.png?raw=true "GUI")
+![GUI](https://github.com/Keshav7aug/Book-Recomendation-System/blob/master/Screenshots/Screenshot%20from%202021-02-06%2012-41-42.png?raw=true "GUI")
+![GUI](https://github.com/Keshav7aug/Book-Recomendation-System/blob/master/Screenshots/Screenshot%20from%202021-02-06%2013-16-39.png?raw=true "GUI")
