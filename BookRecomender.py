@@ -5,7 +5,9 @@ Created on Thu Jun 20 16:57:24 2019
 
 @author: keshav
 """
-
+import tkinter as tk
+import tkinter.font as font
+from tkinter import ttk
 import pandas as pd 
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
@@ -137,4 +139,39 @@ def got_book(x,title):
         return
 user=pd.read_csv('ratings.csv')
 
-UI()
+def GUI():
+    A=[]
+    df_book_names=df1.sort_values(by='original_title')
+    names=df_book_names['original_title'].values
+    AllNames=[]
+    for i in names:
+        AllNames.append(i)
+    root = tk.Tk()
+    myFont = font.Font(size=20)
+    root["bg"] ="black"
+    vals = ["" for i in range(10)]
+    
+    head_lbl = tk.StringVar() 
+    for i in range(10):
+        vals[i] = tk.StringVar()
+    width= root.winfo_screenwidth()  
+    height= root.winfo_screenheight()
+    root.geometry("%dx%d" % (width, height)) 
+    root.title("Book Recommenation System") 
+    root.option_add("*TCombobox*Listbox*Font", myFont)
+    label = tk.Label(root, text="Select Book!",bg="black",fg="white",font=myFont) 
+    label.pack() 
+    d={'0':'1','2':'2'}
+    w = ttk.Combobox(root,font=myFont,width=80)
+    w['values'] = AllNames
+    w.pack()
+    btn = ttk.Button(root, text="Submit",command=lambda:accept(vals,A,w,head_lbl))
+    btn.pack()
+    myFont1 = font.Font(size=30)
+    tk.Label(root, textvariable=head_lbl,font=myFont1,bg='black',fg='green').pack()
+    for i in range(10):
+        tk.Label(root, textvariable=vals[i],font=myFont,bg='black',fg='white').pack()
+    #print('hi',w.get())
+    root.mainloop()
+GUI()
+#UI()
