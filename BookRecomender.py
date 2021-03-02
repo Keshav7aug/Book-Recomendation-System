@@ -95,7 +95,7 @@ def UI():
     req=[]
     i=0
     req_book=[]
-    req=input("Enter starting words of book")
+    req=input("Enter starting words of book ")
     for name in names:
         if name.lower().startswith(req):
             req_book.append(name)
@@ -136,9 +136,18 @@ def got_book(x,title):
     return False
         
         
-        return
+        
 user=pd.read_csv('ratings.csv')
-
+def accept(vals,A,comb,head_lbl):
+    A.append(comb.get())
+    prfx = "Books similar to - "
+    all_recs = get_recommendations(A)
+    head_lbl.set(prfx+','.join(A))
+    #print("books similar to {} :-".format(A))
+    #print(all_recs)
+    
+    for i in range(10):
+        vals[i].set(all_recs[i])
 def GUI():
     A=[]
     df_book_names=df1.sort_values(by='original_title')
@@ -173,5 +182,7 @@ def GUI():
         tk.Label(root, textvariable=vals[i],font=myFont,bg='black',fg='white').pack()
     #print('hi',w.get())
     root.mainloop()
-GUI()
-#UI()
+
+if __name__=='__main__':
+    GUI()
+    #UI()

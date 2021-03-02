@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            {{ book }}
+            <input type="submit">
+        </form>
+        <ul>
+            {% for task in pred %}
+                <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
