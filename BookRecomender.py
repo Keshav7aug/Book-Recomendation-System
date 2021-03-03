@@ -86,7 +86,6 @@ def get_recommendations(titles):
     movie_indices = [i[0] for i in sim_scores]
     # Return the top 10 most similar movies
     return df2['original_title'].iloc[movie_indices].values
-    
 
 
 def UI():

@@ -1,0 +1,15 @@
+.dark {
+    background-color: black;
+    color: blanchedalmond;
+}
+body,input {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+input.type{
+    background-color: blue;
+} 
+h1,h2 {
+    color: crimson;
+}

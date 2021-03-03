@@ -1,14 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tasks</title>
+        <title>Book Recomendation System</title>
+        <link href="{% static 'BookRecommendation/styles.css' %}" rel="stylesheet">
     </head>
-    <body>
+    <body class="dark">
+        <h1>Book Recommendation System</h1>
         <form method="post">
             {% csrf_token %}
             {{ book }}
             <input type="submit">
         </form>
+        <h2>{{ bookName }}</h2>
         <ul>
             {% for task in pred %}
                 <li>{{ task }}</li>
