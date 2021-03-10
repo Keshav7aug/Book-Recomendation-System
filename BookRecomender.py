@@ -43,8 +43,12 @@ df1['authors'] = df1['authors'].apply(clean_data)
 def create_soup(x):
     return ' ' + x['authors'] + ' ' +  x['description']
 df1['soup'] = df1.apply(create_soup, axis=1)
-
 def get_recommendations(titles):
+    try:
+        return get_recommendation(titles)
+    except:
+        return ["BOOK NOT IN DATABASE"]
+def get_recommendation(titles):
     # Get the index of the movie that matches the title
     df3=df1
     scr=5
@@ -181,7 +185,15 @@ def GUI():
         tk.Label(root, textvariable=vals[i],font=myFont,bg='black',fg='white').pack()
     #print('hi',w.get())
     root.mainloop()
-
+def getBookList():
+    df_book_names=df1.sort_values(by='original_title')
+    names=df_book_names['original_title'].values
+    AllNames=[]
+    j = 0
+    for i in names:
+        AllNames.append((str(j),i))
+        j+=1
+    return tuple(AllNames)
 if __name__=='__main__':
     GUI()
     #UI()

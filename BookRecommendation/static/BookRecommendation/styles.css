@@ -2,7 +2,7 @@
     background-color: black;
     color: blanchedalmond;
 }
-body,input {
+body,input,select {
     font-size: 50px;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
